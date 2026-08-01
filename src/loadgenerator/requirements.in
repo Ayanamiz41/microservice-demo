@@ -1,0 +1,4 @@
+# Direct runtime dependencies of the load generator (mirrors upstream
+# GoogleCloudPlatform/microservices-demo src/loadgenerator/requirements.in).
+locust==2.43.0
+faker==40.1.0
