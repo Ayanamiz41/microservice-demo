@@ -1,0 +1,6 @@
+# emailservice (Python) — runtime dependencies.
+# Test-only dependencies (pytest) are listed in tests/README or installed
+# separately; see README.md for the full local setup.
+grpcio==1.83.0
+grpcio-health-checking==1.83.0
+Jinja2==3.1.6
