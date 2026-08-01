@@ -15,6 +15,7 @@ node_modules/
 # --- Go ---
 *.test
 *.out
+*.exe
 
 # --- IDE / OS ---
 .idea/
