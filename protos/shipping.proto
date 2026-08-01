@@ -1,0 +1,35 @@
+// shipping.proto — ShippingService contract (Go shippingservice).
+// Wire-compatible with upstream GoogleCloudPlatform/microservices-demo.
+
+syntax = "proto3";
+
+package hipstershop;
+
+import "demo.proto";
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// ---------------Shipping Service----------
+
+service ShippingService {
+  rpc GetQuote(GetQuoteRequest) returns (GetQuoteResponse) {}
+  rpc ShipOrder(ShipOrderRequest) returns (ShipOrderResponse) {}
+}
+
+message GetQuoteRequest {
+  Address address = 1;
+  repeated CartItem items = 2;
+}
+
+message GetQuoteResponse {
+  Money cost_usd = 1;
+}
+
+message ShipOrderRequest {
+  Address address = 1;
+  repeated CartItem items = 2;
+}
+
+message ShipOrderResponse {
+  string tracking_id = 1;
+}

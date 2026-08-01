@@ -1,0 +1,25 @@
+// payment.proto — PaymentService contract (Node.js paymentservice).
+// Wire-compatible with upstream GoogleCloudPlatform/microservices-demo.
+
+syntax = "proto3";
+
+package hipstershop;
+
+import "demo.proto";
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// -------------Payment service-----------------
+
+service PaymentService {
+  rpc Charge(ChargeRequest) returns (ChargeResponse) {}
+}
+
+message ChargeRequest {
+  Money amount = 1;
+  CreditCardInfo credit_card = 2;
+}
+
+message ChargeResponse {
+  string transaction_id = 1;
+}

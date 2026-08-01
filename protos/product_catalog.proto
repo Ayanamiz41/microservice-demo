@@ -1,0 +1,34 @@
+// product_catalog.proto — ProductCatalogService contract (Go productcatalogservice).
+// Wire-compatible with upstream GoogleCloudPlatform/microservices-demo.
+
+syntax = "proto3";
+
+package hipstershop;
+
+import "demo.proto";
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// ---------------Product Catalog----------------
+
+service ProductCatalogService {
+  rpc ListProducts(Empty) returns (ListProductsResponse) {}
+  rpc GetProduct(GetProductRequest) returns (Product) {}
+  rpc SearchProducts(SearchProductsRequest) returns (SearchProductsResponse) {}
+}
+
+message ListProductsResponse {
+  repeated Product products = 1;
+}
+
+message GetProductRequest {
+  string id = 1;
+}
+
+message SearchProductsRequest {
+  string query = 1;
+}
+
+message SearchProductsResponse {
+  repeated Product results = 1;
+}

@@ -1,0 +1,21 @@
+// email.proto — EmailService contract (Python emailservice).
+// Wire-compatible with upstream GoogleCloudPlatform/microservices-demo.
+
+syntax = "proto3";
+
+package hipstershop;
+
+import "demo.proto";
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// -------------Email service-----------------
+
+service EmailService {
+  rpc SendOrderConfirmation(SendOrderConfirmationRequest) returns (Empty) {}
+}
+
+message SendOrderConfirmationRequest {
+  string email = 1;
+  OrderResult order = 2;
+}

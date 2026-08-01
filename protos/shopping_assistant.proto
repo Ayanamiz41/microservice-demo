@@ -1,0 +1,38 @@
+// shopping_assistant.proto — ShoppingAssistantService contract (Python
+// shoppingassistantservice).
+//
+// NOTE: upstream GoogleCloudPlatform/microservices-demo implements this
+// service as a cloud-only Flask app backed by AlloyDB/Gemini and defines no
+// gRPC contract. This replica replaces it with a simple local gRPC assistant
+// (rule/catalog based); the contract below is the simplified in-repo
+// definition for that scope.
+
+syntax = "proto3";
+
+package hipstershop;
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// -----------------Shopping assistant service-----------------
+
+service ShoppingAssistantService {
+  // Returns a chat-style assistant reply for the given user message.
+  rpc GetCompletion(ShoppingAssistantRequest) returns (ShoppingAssistantResponse) {}
+}
+
+message ShoppingAssistantRequest {
+  string user_id = 1;
+  // The user's message / question.
+  string message = 2;
+  // Opaque conversation id; empty on the first message of a conversation.
+  string conversation_id = 3;
+  // Optional catalog context (e.g. product ids currently on screen).
+  repeated string context_product_ids = 4;
+}
+
+message ShoppingAssistantResponse {
+  // The assistant's textual reply.
+  string message = 1;
+  // Echoes/allocates the conversation id for follow-up messages.
+  string conversation_id = 2;
+}

@@ -1,0 +1,31 @@
+// cart.proto — CartService contract (C# cartservice / Redis).
+// Wire-compatible with upstream GoogleCloudPlatform/microservices-demo.
+
+syntax = "proto3";
+
+package hipstershop;
+
+import "demo.proto";
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// -----------------Cart service-----------------
+
+service CartService {
+  rpc AddItem(AddItemRequest) returns (Empty) {}
+  rpc GetCart(GetCartRequest) returns (Cart) {}
+  rpc EmptyCart(EmptyCartRequest) returns (Empty) {}
+}
+
+message AddItemRequest {
+  string user_id = 1;
+  CartItem item = 2;
+}
+
+message EmptyCartRequest {
+  string user_id = 1;
+}
+
+message GetCartRequest {
+  string user_id = 1;
+}
