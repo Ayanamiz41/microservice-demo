@@ -1,0 +1,19 @@
+{
+  "name": "currencyservice",
+  "version": "0.1.0",
+  "description": "CurrencyService (Node.js, CommonJS) for the Online Boutique replica - GetSupportedCurrencies/Convert currency conversion",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.4",
+    "google-protobuf": "^3.21.4"
+  },
+  "license": "Apache-2.0"
+}
