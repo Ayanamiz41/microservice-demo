@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CartService</RootNamespace>
+    <AssemblyName>cartservice</AssemblyName>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.63.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
+  </ItemGroup>
+
+  <!-- Keep the nested tests/ project out of the server compilation. -->
+  <ItemGroup>
+    <Compile Remove="tests\**" />
+    <Content Remove="tests\**" />
+    <None Remove="tests\**" />
+  </ItemGroup>
+
+  <!-- Use the checked-in generated C# stubs from genproto/csharp (do not hand-edit them). -->
+  <ItemGroup>
+    <Compile Include="../../genproto/csharp/*.cs" Link="genproto/%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>
