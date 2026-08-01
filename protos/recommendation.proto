@@ -1,0 +1,23 @@
+// recommendation.proto — RecommendationService contract (Python recommendationservice).
+// Wire-compatible with upstream GoogleCloudPlatform/microservices-demo.
+
+syntax = "proto3";
+
+package hipstershop;
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// ---------------Recommendation service----------
+
+service RecommendationService {
+  rpc ListRecommendations(ListRecommendationsRequest) returns (ListRecommendationsResponse) {}
+}
+
+message ListRecommendationsRequest {
+  string user_id = 1;
+  repeated string product_ids = 2;
+}
+
+message ListRecommendationsResponse {
+  repeated string product_ids = 1;
+}

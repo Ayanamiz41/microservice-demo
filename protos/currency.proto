@@ -1,0 +1,29 @@
+// currency.proto — CurrencyService contract (Node.js currencyservice).
+// Wire-compatible with upstream GoogleCloudPlatform/microservices-demo.
+
+syntax = "proto3";
+
+package hipstershop;
+
+import "demo.proto";
+
+option go_package = "github.com/Ayanamiz41/microservice-demo/genproto/go/hipstershop";
+
+// -----------------Currency service-----------------
+
+service CurrencyService {
+  rpc GetSupportedCurrencies(Empty) returns (GetSupportedCurrenciesResponse) {}
+  rpc Convert(CurrencyConversionRequest) returns (Money) {}
+}
+
+message GetSupportedCurrenciesResponse {
+  // The 3-letter currency code defined in ISO 4217.
+  repeated string currency_codes = 1;
+}
+
+message CurrencyConversionRequest {
+  Money from = 1;
+
+  // The 3-letter currency code defined in ISO 4217.
+  string to_code = 2;
+}

@@ -1,0 +1,22 @@
+# --- local toolchain (never commit) ---
+/toolchain/
+
+# --- generated-code build artifacts ---
+genproto/java/classes/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+
+# --- Node ---
+node_modules/
+
+# --- Go ---
+*.test
+*.out
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
