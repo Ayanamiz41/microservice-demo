@@ -1,0 +1,8 @@
+# Runtime dependencies of the load generator.
+#
+# Direct pins match upstream GoogleCloudPlatform/microservices-demo
+# (src/loadgenerator/requirements.in); the transitive closure is resolved
+# by pip at install time. Install with:
+#     pip install -r requirements.txt
+locust==2.43.0
+faker==40.1.0
