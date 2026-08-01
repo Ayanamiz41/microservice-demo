@@ -1,0 +1,9 @@
+# Runtime dependencies for the recommendationservice.
+# The committed genproto/python stubs are generated with grpcio 1.83.0 and
+# enforce grpcio>=1.83.0 at import time (see recommendation_pb2_grpc.py).
+grpcio>=1.83.0
+grpcio-health-checking>=1.83.0
+protobuf>=5.0
+
+# Development (tests)
+pytest>=8.0
