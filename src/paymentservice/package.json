@@ -1,0 +1,21 @@
+{
+  "name": "paymentservice",
+  "version": "0.1.0",
+  "description": "PaymentService (Node.js, CommonJS) for the Online Boutique replica - Charge credit-card processing",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.4",
+    "google-protobuf": "^3.21.4",
+    "simple-card-validator": "^1.1.0",
+    "uuid": "^11.1.0"
+  },
+  "license": "Apache-2.0"
+}
